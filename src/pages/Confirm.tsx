@@ -38,7 +38,14 @@ function Confirm() {
   ];
 
   return (
-    <div style={{ backgroundColor: "white", color: "black" }}>
+    <div
+      style={{
+        backgroundColor: "white",
+        color: "black",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <p>Do you want to be my valentine?</p>
 
       <div

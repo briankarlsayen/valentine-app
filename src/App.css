@@ -1,6 +1,10 @@
-body {
+* {
   padding: 0;
   margin: 0;
+}
+
+button {
+  padding: 0;
 }
 
 .wordle-container {
@@ -18,17 +22,20 @@ body {
 }
 
 .wordle-app {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   padding: 16px;
-  max-width: 500px;
+  /* max-width: 520px; */
   margin: auto;
+  gap: 1rem;
 }
 
 .board {
   display: grid;
   gap: 6px;
   margin: 6px auto;
-  width: 500px;
+  /* width: 500px; */
   align-items: center;
   justify-content: center;
 }
@@ -39,6 +46,17 @@ body {
 }
 
 .tile {
+  width: 58px;
+  height: 58px;
+  border: 2px solid #3a3a3c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.tile-valentine {
   width: 58px;
   height: 58px;
   border: 2px solid #3a3a3c;
@@ -103,19 +121,6 @@ body {
   margin-top: 15px;
 }
 
-@media (max-width: 480px) {
-  .tile {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-  }
-
-  .key {
-    height: 42px;
-    min-width: 28px;
-  }
-}
-
 .game-buttons {
   display: flex;
   justify-content: center;
@@ -155,7 +160,7 @@ body {
 .val-buttons button {
   padding: 14px 26px;
   font-size: 1.2rem;
-  border-radius: 10px;
+  border-radius: 6px;
   border: none;
   font-weight: bold;
   cursor: pointer;
@@ -172,14 +177,47 @@ body {
 }
 
 .image-bg {
-  width: auto;
+  width: 100%;
   background-image: url("./assets/valentine-bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  min-height: 96vh;
   height: auto;
   animation: fadeIn 1s ease-in-out;
+  justify-content: center;
+}
+
+.animate-tile {
+  animation: popIn 1.2s ease forwards;
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+@media (max-width: 480px) {
+  .tile {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .key {
+    height: 36px;
+    min-width: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .tile-valentine {
+    width: 32px;
+    height: 32px;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .val-buttons button {
+    padding: 8px 20px;
+    font-size: 1rem;
+  }
 }
 
 @keyframes fadeIn {
@@ -188,5 +226,20 @@ body {
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) rotateX(90deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
