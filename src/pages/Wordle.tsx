@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useSearchParams } from "react-router";
 
 const WORD = "VALE*";
 const MAX_ROWS = 6;
@@ -24,6 +25,9 @@ export default function WordleApp() {
   const [size, setSize] = useState({ width: 80, height: 40 });
   const [isMax, setMax] = useState(false);
   const [count, setCount] = useState(1);
+
+  const [params] = useSearchParams();
+  const name = params.get("name");
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -109,11 +113,18 @@ export default function WordleApp() {
   const message = "WILL YOU  BE MY?".split("");
   const valentine = "VALENTNE";
 
+  const capitalize = (name?: string | null) => {
+    if (!name) return "";
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+  };
+
   return (
     <div className="wordle-container">
       {gaveUp ? (
         <div className={`wordle-app ${confirm ? "image-bg" : ""}`}>
-          <h1 style={{ fontSize: "1.5rem" }}>Wordle</h1>
+          {name && (
+            <h1 style={{ fontSize: "1.5rem" }}>Hey {capitalize(name)},</h1>
+          )}
           <div>
             <div className="board">
               {Array.from({ length: 3 }).map((_, row) => (
@@ -158,6 +169,7 @@ export default function WordleApp() {
           {confirm ? (
             <div>
               <p>It was a pleasure having you as a Valentine date.</p>
+              <p>I can't wait to you see you!</p>
             </div>
           ) : (
             <div
