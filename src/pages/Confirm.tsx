@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 function Confirm() {
   const containerRef = useRef<HTMLDivElement>(null);

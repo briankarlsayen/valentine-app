@@ -1,7 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import iconImg from "../assets/chick.png";
-import successGif from "../assets/happy.gif";
-import sb1 from "../assets/sb1.gif";
+import { useEffect, useRef, useState } from "react";
 import sb2 from "../assets/sb2.gif";
 import sb3 from "../assets/sb3.gif";
 interface Position {
