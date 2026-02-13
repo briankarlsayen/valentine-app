@@ -11,6 +11,7 @@ button {
   width: 100vw;
   display: flex;
   height: 100%;
+  color: white;
 }
 
 .card {
@@ -174,6 +175,15 @@ button {
 .val-buttons .no {
   background: #ff4d6d;
   color: white;
+}
+
+.val-will-btn {
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .image-bg {

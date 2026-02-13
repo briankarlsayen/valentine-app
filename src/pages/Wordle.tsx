@@ -185,6 +185,7 @@ export default function WordleApp() {
             >
               <button
                 ref={buttonRef}
+                className="val-will-btn"
                 style={{
                   width: size.width,
                   height: size.height,
@@ -199,9 +200,10 @@ export default function WordleApp() {
               {!isMax && (
                 <button
                   onClick={handleNoClick}
+                  className="val-will-btn"
                   style={{
-                    height: "fit-content",
-                    backgroundColor: "red",
+                    height: count > 1 ? "fit-content" : "35px",
+                    backgroundColor: "gray",
                     padding: ".5rem",
                     width: count > 1 ? "auto" : "80px",
                   }}
